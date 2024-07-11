@@ -8,7 +8,7 @@ OpenCV is a library used mainly for computer vision. While researching facial re
 
 I began by following a facial recognition tutorial to understand the basics of how OpenCV's resources work. Then, I modified it to work with Haar Cascades' cat recognition tool.
 
-I tested this with a variety of different cat photos (taken by myself and @su.and.ran and @nabesentochiro on Instagram). Some of the photos had one cat, while others had multiple. 
+I tested this with a variety of different cat photos (taken by myself, [@su.and.ran](https://www.instagram.com/su.and.ran/) and [@nabesentochiro](https://www.instagram.com/nabesentochiro/?hl=en) on Instagram). Some of the photos had one cat, while others had multiple. 
 
 Using Haar Cascades' cat recognition tool, I got varying results. While it always recognized the cat in the photo, it also falsely recognized other non-cat portions of the photo as well. 
 
