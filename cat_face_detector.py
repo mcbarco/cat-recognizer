@@ -11,9 +11,6 @@ files = glob.glob('result-images/lbp/*')
 for f in files:
     os.remove(f)
 
-# cat recognizer (lbp - local binary patterns)
-rec = 'lbpcascade_frontalcatface.xml'
-
 # loads haar case algorithm for cat face recognition
 alg = "haarcascade_frontalcatface_extended.xml"
 # passing cat regonition algorithm to OpenCV
@@ -24,7 +21,7 @@ alg2 = "lbpcascade_frontalcatface.xml"
 # passing alternate cat recognition algorithm to OpenCV
 lbp_cascade = cv2.CascadeClassifier(alg2)
 
-file_name = 'cat-images\\cat-image-1.jpg'
+file_name = 'cat-images\\cats-image-6.jpg'
 img = cv2.imread(file_name, 0)
 # gray version of image (makes it easier to process image)
 gray_img = cv2.cvtColor(img, cv2.COLOR_RGB2BGR)
