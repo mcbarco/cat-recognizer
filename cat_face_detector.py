@@ -3,26 +3,25 @@ import os
 import glob
 
 # delete any leftover images in result-images
-files = glob.glob('result-images/haar/*')
-for f in files:
-    os.remove(f)
+files = ['result-images/haar/*', 'result-images/lbp/*']
+for folder in files:
+    f = glob.glob(folder)
+    for im in f:
+        os.remove(im)        
 
-files = glob.glob('result-images/lbp/*')
-for f in files:
-    os.remove(f)
+# saves algorithm paths
+algs = ["haarcascade_frontalcatface_extended.xml", "lbpcascade_frontalcatface.xml"]
 
-# loads haar case algorithm for cat face recognition
-alg = "haarcascade_frontalcatface_extended.xml"
 # passing cat regonition algorithm to OpenCV
-haar_cascade = cv2.CascadeClassifier(alg)
+haar_cascade = cv2.CascadeClassifier(algs[0])
 
-# loads lbp case algorithm for cat face recognition
-alg2 = "lbpcascade_frontalcatface.xml"
 # passing alternate cat recognition algorithm to OpenCV
-lbp_cascade = cv2.CascadeClassifier(alg2)
+lbp_cascade = cv2.CascadeClassifier(algs[1])
 
+# declares which cat image you wish to search in (change as needed)
 file_name = 'cat-images\\cats-image-6.jpg'
 img = cv2.imread(file_name, 0)
+
 # gray version of image (makes it easier to process image)
 gray_img = cv2.cvtColor(img, cv2.COLOR_RGB2BGR)
 
@@ -36,28 +35,25 @@ faces2 = lbp_cascade.detectMultiScale(
     gray_img, scaleFactor=1.15, minNeighbors=1, minSize=(80,80)
 )
 
-# for each face detected (using haar algorithm)
-face_count = 0
-for x, y, w, h in faces:
-    face_count+=1
-    # crops the image so that only one face is selected
-    cropped_image = img[y : y + h, x : x + w]
-    # loads image path to the target_file_name variable
-    target_file_name = 'result-images\\haar\\found-cat-' + str(face_count) + '.jpg'
-    cv2.imwrite(
-        target_file_name,
-        cropped_image,
-    )
+cat_faces = [faces, faces2]
+# for each face detected 
+num = 0
+for face in cat_faces:
+    face_count = 0
+    for x, y, w, h in face:
+        face_count+=1
+        # crops the image so that only one face is selected
+        cropped_image = img[y : y + h, x : x + w]
+        
+        # determines which cat detector is being used (haar or lbp)
+        rec_type = 'haar'
+        if (num == 1):
+            rec_type = 'lbp'
 
-# for each face detected (using lbp algorithm)
-face_count2 = 0
-for x, y, w, h in faces2:
-    face_count2+=1
-    # crops the image so that only one face is selected
-    cropped_image = img[y : y + h, x : x + w]
-    # loads image path to the target_file_name variable
-    target_file_name = 'result-images\\lbp\\found-cat-' + str(face_count2) + '.jpg'
-    cv2.imwrite(
-        target_file_name,
-        cropped_image,
-    )        
+        # loads image path to the target_file_name variable
+        target_file_name = 'result-images\\' + rec_type + '\\found-cat-' + str(face_count) + '.jpg'
+        cv2.imwrite(
+            target_file_name,
+            cropped_image,
+        )
+    num+=1
