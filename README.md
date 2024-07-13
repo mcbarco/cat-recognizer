@@ -6,7 +6,20 @@ This project is a Python program that uses OpenCV (Open Source Computer Vision) 
 
 OpenCV is a library used mainly for computer vision. While researching facial recognition software, and how to build it, I discovered something even more fun! Cat recognition software. For a cat lover, this was an amazing discovery.
 
-I began by following a facial recognition tutorial to understand the basics of how OpenCV's resources work. Then, I modified it to work with Haar Cascades' cat recognition tool.
+I began by following a facial recognition tutorial to understand the basics of how OpenCV's resources work. Then, I modified it to work with Haar Cascades' and LBP Cascades' cat recognition tool. 
+
+## Results
+
+The following image is a cat image that I used to test the program. 
+
+<img src="cat-images\cats-image-6.jpg" alt="cats-image-su.and.ran" width="500">
+
+The following table shows what each of the cat recognition tools generated from the cat image.
+
+| Haar Cascades                     | LBP Cascades                      |
+|-----------------------------------|-----------------------------------|
+| ![found-cat-1-haar](result-images\haar\found-cat-1.jpg)| ![found-cat-1-lbp](result-images\lbp\found-cat-1.jpg)|
+|                | ![found-cat-2-lbp](result-images\lbp\found-cat-2.jpg)|
 
 ## Testing Process
 
