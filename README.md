@@ -18,8 +18,8 @@ The following table shows what each of the cat recognition tools generated from 
 
 | Haar Cascades                     | LBP Cascades                      |
 |-----------------------------------|-----------------------------------|
-| ![found-cat-1-haar](result-images\haar\found-cat-1.jpg)| ![found-cat-1-lbp](result-images\lbp\found-cat-1.jpg)|
-|                | ![found-cat-2-lbp](result-images\lbp\found-cat-2.jpg)|
+| ![found-cat-1-haar](https://github.com/mcbarco/cat-recognizer/blob/90c1b55cc558c652bd4ad93a7fd014d177c22883/result-images/haar/found-cat-1.jpg)| ![found-cat-1-lbp](https://github.com/mcbarco/cat-recognizer/blob/90c1b55cc558c652bd4ad93a7fd014d177c22883/result-images/lbp/found-cat-1.jpg)|
+|                | ![found-cat-2-lbp](https://github.com/mcbarco/cat-recognizer/blob/90c1b55cc558c652bd4ad93a7fd014d177c22883/result-images/lbp/found-cat-2.jpg)|
 
 ## Testing Process
 
